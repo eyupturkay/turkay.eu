@@ -1,0 +1,38 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  company: string;
+  content: string;
+  rating: number;
+}
+
+const { name, role, company, content, rating } = Astro.props;
+const stars = Array.from({ length: 5 }, (_, i) => i < rating);
+---
+<div class="bg-[#111d33] border border-[#1e3a5f] rounded-xl p-6 sm:p-8">
+  <!-- Stars -->
+  <div class="flex gap-1 mb-4">
+    {stars.map((filled) => (
+      <svg class={`w-5 h-5 ${filled ? 'text-[#f59e0b]' : 'text-[#1e3a5f]'}`} fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    ))}
+  </div>
+
+  <!-- Quote -->
+  <blockquote class="text-sm text-[#e2e8f0] leading-relaxed italic">
+    &ldquo;{content}&rdquo;
+  </blockquote>
+
+  <!-- Author -->
+  <div class="mt-6 flex items-center gap-3">
+    <div class="w-10 h-10 rounded-full bg-[#1e3a5f] flex items-center justify-center text-sm font-semibold text-[#f59e0b]">
+      {name.split(' ').map((n) => n[0]).join('').slice(0, 2)}
+    </div>
+    <div>
+      <div class="text-sm font-medium text-[#e2e8f0]">{name}</div>
+      <div class="text-xs text-[#94a3b8]">{role}, {company}</div>
+    </div>
+  </div>
+</div>

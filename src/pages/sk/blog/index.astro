@@ -1,0 +1,20 @@
+---
+import SkLayout from '../../../layouts/SkLayout.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+import sk from '../../../i18n/sk.json';
+
+const blogs = (await getCollection('sk-blog')).sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+<SkLayout title="Blog" description="Poznatky o AI, cloud computingu a vývoji softvéru od TURKAY.">
+  <section class="max-w-7xl mx-auto px-4 py-20">
+    <h1 class="text-4xl font-bold text-center mb-4">{sk.sections.blog}</h1>
+    <p class="text-center text-[#94a3b8] mb-16 max-w-2xl mx-auto">Poznatky, návody a myšlienkové vedenie od nášho tímu.</p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {blogs.map(b => (
+        <BlogCard title={b.data.title} description={b.data.description} date={b.data.date} author={b.data.author} category={b.data.category} readTime={b.data.readTime} href={`/sk/blog/${b.id}`} />
+      ))}
+    </div>
+  </section>
+</SkLayout>

@@ -1,0 +1,88 @@
+---
+import SkLayout from '../../layouts/SkLayout.astro';
+import sk from '../../i18n/sk.json';
+---
+<SkLayout title="Kontakt" description="Kontaktujte TURKAY. Kancelária v Bratislave.">
+  <section class="max-w-7xl mx-auto px-4 py-20">
+    <h1 class="text-4xl font-bold text-center mb-4">Kontaktujte nás</h1>
+    <p class="text-center text-[#94a3b8] mb-16 max-w-2xl mx-auto">Ste pripravení začať svoj ďalší projekt? Ozvite sa nášmu tímu.</p>
+
+    <div class="grid lg:grid-cols-2 gap-16">
+      <!-- Kontaktný formulár -->
+      <div class="bg-[#111d33] border border-[#1e3a5f] rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-[#e2e8f0] mb-6">Pošlite nám správu</h2>
+        <form class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm text-[#94a3b8] mb-2">Meno</label>
+              <input type="text" class="w-full px-4 py-3 bg-[#0a1628] border border-[#1e3a5f] rounded-lg text-[#e2e8f0] focus:border-[#f59e0b] focus:outline-none transition-colors" placeholder="Vaše meno" />
+            </div>
+            <div>
+              <label class="block text-sm text-[#94a3b8] mb-2">E-mail</label>
+              <input type="email" class="w-full px-4 py-3 bg-[#0a1628] border border-[#1e3a5f] rounded-lg text-[#e2e8f0] focus:border-[#f59e0b] focus:outline-none transition-colors" placeholder="vas@email.com" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm text-[#94a3b8] mb-2">Predmet</label>
+            <input type="text" class="w-full px-4 py-3 bg-[#0a1628] border border-[#1e3a5f] rounded-lg text-[#e2e8f0] focus:border-[#f59e0b] focus:outline-none transition-colors" placeholder="Ako vám môžeme pomôcť?" />
+          </div>
+          <div>
+            <label class="block text-sm text-[#94a3b8] mb-2">Správa</label>
+            <textarea rows="5" class="w-full px-4 py-3 bg-[#0a1628] border border-[#1e3a5f] rounded-lg text-[#e2e8f0] focus:border-[#f59e0b] focus:outline-none transition-colors resize-none" placeholder="Povedzte nám o vašom projekte..."></textarea>
+          </div>
+          <button type="button" class="w-full px-6 py-3 bg-[#f59e0b] text-[#0a1628] font-semibold rounded-lg hover:bg-[#d97706] transition-colors">Odoslať správu</button>
+        </form>
+      </div>
+
+      <!-- Informácie o kancelárii -->
+      <div class="space-y-8">
+        <div>
+          <h2 class="text-2xl font-bold text-[#e2e8f0] mb-6">Naše kancelárie</h2>
+          <p class="text-[#94a3b8] mb-8">Navštívte nás v jednej z našich kancelárií alebo nás kontaktujte e-mailom či telefonicky.</p>
+        </div>
+
+        <div class="bg-[#111d33] border border-[#1e3a5f] rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-[#f59e0b] mb-4">Bratislava, Slovensko</h3>
+          <div class="space-y-3 text-[#94a3b8]">
+            <p class="flex items-start gap-3">
+              <span class="text-[#38bdf8] mt-1">&#9906;</span>
+              <span>Bratislava, Slovensko</span>
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="text-[#38bdf8]">&#9742;</span>
+              <span>+421 2 000 000 00</span>
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="text-[#38bdf8]">&#9993;</span>
+              <a href="mailto:info@turkay.eu" class="hover:text-[#f59e0b] transition-colors">info@turkay.eu</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-[#111d33] border border-[#1e3a5f] rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-[#f59e0b] mb-4">Istanbul, Turecko</h3>
+          <div class="space-y-3 text-[#94a3b8]">
+            <p class="flex items-start gap-3">
+              <span class="text-[#38bdf8] mt-1">&#9906;</span>
+              <span>Istanbul, Turecko</span>
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="text-[#38bdf8]">&#9742;</span>
+              <span>+90 (212) 000-0000</span>
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="text-[#38bdf8]">&#9993;</span>
+              <a href="mailto:info@turkay.eu" class="hover:text-[#f59e0b] transition-colors">info@turkay.eu</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-[#111d33] border border-[#1e3a5f] rounded-2xl p-8">
+          <h3 class="text-lg font-bold text-[#e2e8f0] mb-2">Všeobecné otázky</h3>
+          <p class="text-[#94a3b8]">Pre všeobecné otázky, partnerstvá alebo mediálne požiadavky:</p>
+          <a href="mailto:info@turkay.eu" class="text-[#38bdf8] hover:text-[#f59e0b] transition-colors mt-2 inline-block">info@turkay.eu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SkLayout>

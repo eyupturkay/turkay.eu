@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "Domov",
+    "services": "Služby",
+    "solutions": "Riešenia",
+    "projects": "Projekty",
+    "blog": "Blog",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "cta": "Začať"
+  },
+  "sections": {
+    "whyUs": "Prečo si vybrať nás?",
+    "stats": "Naše čísla",
+    "methodology": "Náš proces",
+    "projects": "Posledné projekty",
+    "testimonials": "Referencie klientov",
+    "team": "Náš tím",
+    "faq": "Často kladené otázky",
+    "blog": "Najnovšie články",
+    "tools": "AI nástroje",
+    "services": "Naše služby"
+  },
+  "footer": {
+    "rights": "Všetky práva vyhradené.",
+    "quickLinks": "Rýchle odkazy",
+    "contact": "Kontakt",
+    "newsletter": "Zostaňte informovaní",
+    "subscribe": "Odoberať"
+  },
+  "cta": {
+    "learnMore": "Zistiť viac",
+    "contactUs": "Kontaktujte nás",
+    "viewProject": "Zobraziť projekt",
+    "readMore": "Čítať ďalej",
+    "allPosts": "Všetky články"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "services": "Hizmetlerimiz",
+    "solutions": "Çözümlerimiz",
+    "projects": "Projelerimiz",
+    "blog": "Yazılar",
+    "contact": "Bize Ulaşın"
+  },
+  "hero": {
+    "cta": "Başlayalım"
+  },
+  "sections": {
+    "whyUs": "Neden Bizi Seçmelisiniz?",
+    "stats": "Rakamlarla Başarılarımız",
+    "methodology": "Çalışma Metodolojimiz",
+    "projects": "Son Projelerimiz",
+    "testimonials": "Müşteri Görüşleri",
+    "team": "Ekibimiz",
+    "faq": "Sıkça Sorulan Sorular",
+    "blog": "Son Yazılar",
+    "tools": "Yapay Zeka Araçlarımız",
+    "services": "Hizmetlerimiz"
+  },
+  "footer": {
+    "rights": "Tüm hakları saklıdır.",
+    "quickLinks": "Hızlı Erişim",
+    "contact": "İletişim",
+    "newsletter": "Gelişmelerden Haberdar Olun",
+    "subscribe": "Abone Ol"
+  },
+  "cta": {
+    "learnMore": "Detayları İncele",
+    "contactUs": "Bize Ulaşın",
+    "viewProject": "Projeyi Görüntüle",
+    "readMore": "Devamını Oku",
+    "allPosts": "Tüm Yazılar"
+  }
+}

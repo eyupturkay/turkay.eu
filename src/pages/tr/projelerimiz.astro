@@ -1,0 +1,20 @@
+---
+import TrLayout from '../../layouts/TrLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+import tr from '../../i18n/tr.json';
+
+const projects = (await getCollection('tr-projects')).sort((a, b) => new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime());
+---
+<TrLayout title="Projelerimiz" description="TURKAY'ın yapay zeka, bulut ve yazılım projelerini keşfedin.">
+  <section class="max-w-7xl mx-auto px-4 py-20">
+    <h1 class="text-4xl font-bold text-center mb-4">{tr.sections.projects}</h1>
+    <p class="text-center text-[#94a3b8] mb-16 max-w-2xl mx-auto">Sektörler genelinde uzmanlığımızı sergileyen seçilmiş projeler.</p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map(p => (
+        <ProjectCard title={p.data.title} description={p.data.description} category={p.data.category} tags={p.data.tags} href="/tr/projelerimiz" />
+      ))}
+    </div>
+  </section>
+</TrLayout>

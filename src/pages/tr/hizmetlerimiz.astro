@@ -1,0 +1,42 @@
+---
+import TrLayout from '../../layouts/TrLayout.astro';
+import { getCollection, render } from 'astro:content';
+import tr from '../../i18n/tr.json';
+
+const services = (await getCollection('tr-services')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+<TrLayout title="Hizmetlerimiz" description="TURKAY'ın yapay zeka, bulut ve yazılım geliştirme hizmetlerini keşfedin.">
+  <section class="max-w-7xl mx-auto px-4 py-20">
+    <h1 class="text-4xl font-bold text-center mb-4">{tr.sections.services}</h1>
+    <p class="text-center text-[#94a3b8] mb-16 max-w-2xl mx-auto">Dijital dönüşümünüzü hızlandıracak kapsamlı teknoloji hizmetleri.</p>
+
+    <div class="space-y-20">
+      {await Promise.all(services.map(async (service) => {
+        const { Content } = await render(service);
+        return (
+          <div class="bg-[#111d33] border border-[#1e3a5f] rounded-2xl p-8 md:p-12">
+            <div class="flex items-start gap-4 mb-6">
+              {service.data.icon && <span class="text-4xl">{service.data.icon}</span>}
+              <div>
+                <h2 class="text-2xl font-bold text-[#e2e8f0]">{service.data.title}</h2>
+                <p class="text-[#94a3b8] mt-2">{service.data.description}</p>
+              </div>
+            </div>
+            {service.data.features && (
+              <ul class="grid md:grid-cols-2 gap-3 mb-8">
+                {service.data.features.map((f: string) => (
+                  <li class="flex items-center gap-2 text-[#e2e8f0]">
+                    <span class="text-[#f59e0b]">&#10003;</span> {f}
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div class="prose prose-invert max-w-none text-[#94a3b8]">
+              <Content />
+            </div>
+          </div>
+        );
+      }))}
+    </div>
+  </section>
+</TrLayout>

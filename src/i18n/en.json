@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "solutions": "Solutions",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "cta": "Get Started"
+  },
+  "sections": {
+    "whyUs": "Why Choose Us",
+    "stats": "Our Numbers",
+    "methodology": "Our Process",
+    "projects": "Recent Projects",
+    "testimonials": "Client Testimonials",
+    "team": "Our Team",
+    "faq": "FAQ",
+    "blog": "Latest Posts",
+    "tools": "AI Tools",
+    "services": "Our Services"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "newsletter": "Stay Updated",
+    "subscribe": "Subscribe"
+  },
+  "cta": {
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "viewProject": "View Project",
+    "readMore": "Read More",
+    "allPosts": "All Posts"
+  }
+}

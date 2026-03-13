@@ -1,0 +1,20 @@
+---
+import SkLayout from '../../layouts/SkLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+import sk from '../../i18n/sk.json';
+
+const projects = (await getCollection('sk-projects')).sort((a, b) => new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime());
+---
+<SkLayout title="Projekty" description="Preskúmajte portfólio AI, cloudových a softvérových projektov TURKAY.">
+  <section class="max-w-7xl mx-auto px-4 py-20">
+    <h1 class="text-4xl font-bold text-center mb-4">{sk.sections.projects}</h1>
+    <p class="text-center text-[#94a3b8] mb-16 max-w-2xl mx-auto">Výber projektov prezentujúcich našu expertízu naprieč odvetviami.</p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map(p => (
+        <ProjectCard title={p.data.title} description={p.data.description} category={p.data.category} tags={p.data.tags} href="/sk/projekty" />
+      ))}
+    </div>
+  </section>
+</SkLayout>

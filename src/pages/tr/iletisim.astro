@@ -1,0 +1,88 @@
+---
+import TrLayout from '../../layouts/TrLayout.astro';
+import tr from '../../i18n/tr.json';
+---
+<TrLayout title="İletişim" description="TURKAY ile iletişime geçin. İstanbul ofisimiz.">
+  <section class="max-w-7xl mx-auto px-4 py-20">
+    <h1 class="text-4xl font-bold text-center mb-4">İletişim</h1>
+    <p class="text-center text-[#94a3b8] mb-16 max-w-2xl mx-auto">Bir sonraki projenize başlamaya hazır mısınız? Ekibimize ulaşın.</p>
+
+    <div class="grid lg:grid-cols-2 gap-16">
+      <!-- İletişim Formu -->
+      <div class="bg-[#111d33] border border-[#1e3a5f] rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-[#e2e8f0] mb-6">Bize Mesaj Gönderin</h2>
+        <form class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm text-[#94a3b8] mb-2">Ad Soyad</label>
+              <input type="text" class="w-full px-4 py-3 bg-[#0a1628] border border-[#1e3a5f] rounded-lg text-[#e2e8f0] focus:border-[#f59e0b] focus:outline-none transition-colors" placeholder="Adınız" />
+            </div>
+            <div>
+              <label class="block text-sm text-[#94a3b8] mb-2">E-posta</label>
+              <input type="email" class="w-full px-4 py-3 bg-[#0a1628] border border-[#1e3a5f] rounded-lg text-[#e2e8f0] focus:border-[#f59e0b] focus:outline-none transition-colors" placeholder="eposta@adresiniz.com" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm text-[#94a3b8] mb-2">Konu</label>
+            <input type="text" class="w-full px-4 py-3 bg-[#0a1628] border border-[#1e3a5f] rounded-lg text-[#e2e8f0] focus:border-[#f59e0b] focus:outline-none transition-colors" placeholder="Size nasıl yardımcı olabiliriz?" />
+          </div>
+          <div>
+            <label class="block text-sm text-[#94a3b8] mb-2">Mesaj</label>
+            <textarea rows="5" class="w-full px-4 py-3 bg-[#0a1628] border border-[#1e3a5f] rounded-lg text-[#e2e8f0] focus:border-[#f59e0b] focus:outline-none transition-colors resize-none" placeholder="Projeniz hakkında bilgi verin..."></textarea>
+          </div>
+          <button type="button" class="w-full px-6 py-3 bg-[#f59e0b] text-[#0a1628] font-semibold rounded-lg hover:bg-[#d97706] transition-colors">Mesaj Gönder</button>
+        </form>
+      </div>
+
+      <!-- Ofis Bilgileri -->
+      <div class="space-y-8">
+        <div>
+          <h2 class="text-2xl font-bold text-[#e2e8f0] mb-6">Ofislerimiz</h2>
+          <p class="text-[#94a3b8] mb-8">Ofislerimizi ziyaret edin veya e-posta ya da telefon ile bize ulaşın.</p>
+        </div>
+
+        <div class="bg-[#111d33] border border-[#1e3a5f] rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-[#f59e0b] mb-4">İstanbul, Türkiye</h3>
+          <div class="space-y-3 text-[#94a3b8]">
+            <p class="flex items-start gap-3">
+              <span class="text-[#38bdf8] mt-1">&#9906;</span>
+              <span>İstanbul, Türkiye</span>
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="text-[#38bdf8]">&#9742;</span>
+              <span>+90 (212) 000-0000</span>
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="text-[#38bdf8]">&#9993;</span>
+              <a href="mailto:info@turkay.eu" class="hover:text-[#f59e0b] transition-colors">info@turkay.eu</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-[#111d33] border border-[#1e3a5f] rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-[#f59e0b] mb-4">Bratislava, Slovakya</h3>
+          <div class="space-y-3 text-[#94a3b8]">
+            <p class="flex items-start gap-3">
+              <span class="text-[#38bdf8] mt-1">&#9906;</span>
+              <span>Bratislava, Slovakya</span>
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="text-[#38bdf8]">&#9742;</span>
+              <span>+421 2 000 000 00</span>
+            </p>
+            <p class="flex items-center gap-3">
+              <span class="text-[#38bdf8]">&#9993;</span>
+              <a href="mailto:info@turkay.eu" class="hover:text-[#f59e0b] transition-colors">info@turkay.eu</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-[#111d33] border border-[#1e3a5f] rounded-2xl p-8">
+          <h3 class="text-lg font-bold text-[#e2e8f0] mb-2">Genel Sorular</h3>
+          <p class="text-[#94a3b8]">Genel sorular, ortaklıklar veya medya talepleri için:</p>
+          <a href="mailto:info@turkay.eu" class="text-[#38bdf8] hover:text-[#f59e0b] transition-colors mt-2 inline-block">info@turkay.eu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</TrLayout>

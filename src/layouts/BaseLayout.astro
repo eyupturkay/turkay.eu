@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  lang: 'en' | 'tr' | 'sk';
+  ogImage?: string;
+  canonical?: string;
+}
+
+const { title, description, lang, ogImage, canonical } = Astro.props;
+const ogLocale = { en: 'en_US', tr: 'tr_TR', sk: 'sk_SK' }[lang];
+const siteUrl = 'https://turkay.eu';
+const currentPath = Astro.url.pathname;
+const canonicalUrl = canonical || `${siteUrl}${currentPath}`;
+---
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | TURKAY</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:locale" content={ogLocale} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
+  {ogImage && <meta property="og:image" content={ogImage} />}
+  <slot name="head" />
+</head>
+<body class="bg-[#0a1628] text-[#e2e8f0] font-sans antialiased">
+  <slot />
+</body>
+</html>

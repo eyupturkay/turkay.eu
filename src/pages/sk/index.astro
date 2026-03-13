@@ -1,0 +1,59 @@
+---
+import SkLayout from '../../layouts/SkLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Stats from '../../components/Stats.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import CTA from '../../components/CTA.astro';
+import { getCollection } from 'astro:content';
+import sk from '../../i18n/sk.json';
+
+const services = (await getCollection('sk-services')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const projects = (await getCollection('sk-projects')).sort((a, b) => new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime()).slice(0, 3);
+const testimonials = await getCollection('sk-testimonials');
+const blogs = (await getCollection('sk-blog')).sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()).slice(0, 3);
+
+const stats = [
+  { value: '43+', label: 'Dodaných projektov' },
+  { value: '15+', label: 'Podnikových klientov' },
+  { value: '10+', label: 'Rokov skúseností' },
+  { value: '2', label: 'Kancelárie' },
+];
+---
+<SkLayout title="Integrované digitálne riešenia" description="TURKAY poskytuje AI, cloudové a softvérové riešenia pre podniky. Kancelárie v Istanbule a Bratislave.">
+  <Hero title="Inteligentné riešenia pre výzvy zajtrajška" subtitle="Kombinujeme AI expertízu, cloudové inžinierstvo a full-stack vývoj pre technológie s reálnym obchodným dopadom." ctaText={sk.hero.cta} ctaHref="/sk/kontakt" lang="sk" />
+
+  <Stats stats={stats} />
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+    <h2 class="text-3xl font-bold text-center mb-12">{sk.sections.services}</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      {services.map(s => <ServiceCard title={s.data.title} description={s.data.description} icon={s.data.icon} href="/sk/sluzby" />)}
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+    <h2 class="text-3xl font-bold text-center mb-12">{sk.sections.projects}</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      {projects.map(p => <ProjectCard title={p.data.title} description={p.data.description} category={p.data.category} tags={p.data.tags} href="/sk/projekty" />)}
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+    <h2 class="text-3xl font-bold text-center mb-12">{sk.sections.testimonials}</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      {testimonials.map(t => <TestimonialCard name={t.data.name} role={t.data.role} company={t.data.company} content={t.body ?? ''} rating={t.data.rating} />)}
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-20">
+    <h2 class="text-3xl font-bold text-center mb-12">{sk.sections.blog}</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      {blogs.map(b => <BlogCard title={b.data.title} description={b.data.description} date={b.data.date} author={b.data.author} category={b.data.category} readTime={b.data.readTime} href={`/sk/blog/${b.id}`} />)}
+    </div>
+  </section>
+
+  <CTA title="Pripravení transformovať váš biznis?" description="Poďme sa porozprávať o tom, ako naša AI, cloudová a vývojová expertíza môže urýchliť vašu digitálnu transformáciu." buttonText={sk.cta.contactUs} buttonHref="/sk/kontakt" />
+</SkLayout>

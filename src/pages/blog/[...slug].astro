@@ -1,0 +1,33 @@
+---
+import EnLayout from '../../layouts/EnLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('en-blog');
+  return posts.map(post => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<EnLayout title={post.data.title} description={post.data.description}>
+  <article class="max-w-4xl mx-auto px-4 py-20">
+    <header class="mb-12">
+      <div class="flex items-center gap-4 text-sm text-[#94a3b8] mb-4">
+        {post.data.category && <span class="px-3 py-1 bg-[#1e3a5f] rounded-full text-[#38bdf8]">{post.data.category}</span>}
+        {post.data.date && <time>{new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>}
+        {post.data.readTime && <span>{post.data.readTime}</span>}
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-[#e2e8f0] mb-4">{post.data.title}</h1>
+      {post.data.author && <p class="text-[#94a3b8]">By <span class="text-[#f59e0b]">{post.data.author}</span></p>}
+    </header>
+
+    <div class="prose prose-invert prose-lg max-w-none text-[#e2e8f0] prose-headings:text-[#e2e8f0] prose-a:text-[#38bdf8] prose-strong:text-[#e2e8f0]">
+      <Content />
+    </div>
+
+    <footer class="mt-16 pt-8 border-t border-[#1e3a5f]">
+      <a href="/blog" class="text-[#38bdf8] hover:text-[#f59e0b] transition-colors">&larr; Back to Blog</a>
+    </footer>
+  </article>
+</EnLayout>

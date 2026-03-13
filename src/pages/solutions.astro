@@ -1,0 +1,36 @@
+---
+import EnLayout from '../layouts/EnLayout.astro';
+import { getCollection } from 'astro:content';
+import en from '../i18n/en.json';
+
+let solutions: any[] = [];
+try {
+  solutions = await getCollection('en-solutions');
+} catch {
+  solutions = [];
+}
+---
+<EnLayout title="Solutions" description="Enterprise solutions powered by TURKAY's AI and cloud expertise.">
+  <section class="max-w-7xl mx-auto px-4 py-20">
+    <h1 class="text-4xl font-bold text-center mb-4">{en.sections.solutions ?? 'Solutions'}</h1>
+    <p class="text-center text-[#94a3b8] mb-16 max-w-2xl mx-auto">Tailored enterprise solutions built on cutting-edge technology.</p>
+
+    {solutions.length > 0 ? (
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {solutions.map(s => (
+          <div class="bg-[#111d33] border border-[#1e3a5f] rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-[#e2e8f0] mb-3">{s.data.title}</h3>
+            <p class="text-[#94a3b8]">{s.data.description}</p>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-20">
+        <div class="text-6xl mb-6">🚀</div>
+        <h2 class="text-2xl font-bold text-[#e2e8f0] mb-4">Solutions Coming Soon</h2>
+        <p class="text-[#94a3b8] max-w-md mx-auto">We're preparing detailed case studies of our enterprise solutions. Check back soon or contact us to learn more.</p>
+        <a href="/contact" class="inline-block mt-8 px-6 py-3 bg-[#f59e0b] text-[#0a1628] font-semibold rounded-lg hover:bg-[#d97706] transition-colors">Contact Us</a>
+      </div>
+    )}
+  </section>
+</EnLayout>

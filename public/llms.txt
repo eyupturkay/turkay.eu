@@ -1,0 +1,26 @@
+# TURKAY.EU — Integrated Digital Solutions
+
+## About
+TURKAY is a technology company providing AI, cloud, and software solutions.
+Offices in Istanbul (Turkey) and Bratislava (Slovakia).
+Founded in 2014.
+
+## Services
+- AI & Machine Learning consulting and implementation
+- Cloud & DevOps (AWS, Azure, GCP)
+- Full-Stack Development (Web & Mobile)
+- Cybersecurity consulting
+- Enterprise system integration
+- Digital transformation consulting
+
+## Contact
+- Website: https://turkay.eu
+- Istanbul: Inkilap, Sokullu Cd No:5, 34768 Umraniye/Istanbul
+- Bratislava: SKY PARK Offices, Bottova 7939/2A, 811 09
+- TR Phone: +90 (551) 952 63 38
+- SK Phone: +421 915 455 756
+
+## Languages
+- English: https://turkay.eu/
+- Turkish: https://turkay.eu/tr/
+- Slovak: https://turkay.eu/sk/

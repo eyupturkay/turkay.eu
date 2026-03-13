@@ -1,0 +1,136 @@
+---
+interface Props {
+  lang: 'en' | 'tr' | 'sk';
+}
+
+const { lang } = Astro.props;
+
+const t = await import(`../i18n/${lang}.json`);
+
+const quickLinks = {
+  en: [
+    { href: '/', label: t.nav.home },
+    { href: '/services', label: t.nav.services },
+    { href: '/solutions', label: t.nav.solutions },
+    { href: '/projects', label: t.nav.projects },
+    { href: '/blog', label: t.nav.blog },
+    { href: '/contact', label: t.nav.contact },
+  ],
+  tr: [
+    { href: '/tr/', label: t.nav.home },
+    { href: '/tr/hizmetlerimiz', label: t.nav.services },
+    { href: '/tr/cozumlerimiz', label: t.nav.solutions },
+    { href: '/tr/projelerimiz', label: t.nav.projects },
+    { href: '/tr/yazilar', label: t.nav.blog },
+    { href: '/tr/iletisim', label: t.nav.contact },
+  ],
+  sk: [
+    { href: '/sk/', label: t.nav.home },
+    { href: '/sk/sluzby', label: t.nav.services },
+    { href: '/sk/riesenia', label: t.nav.solutions },
+    { href: '/sk/projekty', label: t.nav.projects },
+    { href: '/sk/blog', label: t.nav.blog },
+    { href: '/sk/kontakt', label: t.nav.contact },
+  ],
+};
+
+const links = quickLinks[lang];
+
+const istanbul = {
+  address: 'Inkilap, Sokullu Cd No:5, 34768 Umraniye/Istanbul',
+  phone: '+90 (551) 952 63 38',
+};
+
+const bratislava = {
+  address: 'SKY PARK Offices, Bottova 7939/2A, 811 09 Bratislava',
+  phone: '+421 915 455 756',
+};
+
+const showIstanbul = lang === 'en' || lang === 'tr';
+const showBratislava = lang === 'en' || lang === 'sk';
+
+const currentYear = new Date().getFullYear();
+---
+<footer class="bg-[#111d33] border-t border-[#1e3a5f]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <!-- Logo & description -->
+      <div class="lg:col-span-1">
+        <a href={lang === 'en' ? '/' : `/${lang}/`} class="text-2xl font-extrabold text-[#e2e8f0]">
+          TURKAY
+        </a>
+        <p class="mt-3 text-sm text-[#94a3b8] leading-relaxed">
+          AI, Cloud & Software Solutions
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-sm font-semibold text-[#e2e8f0] uppercase tracking-wider mb-4">
+          {t.footer.quickLinks}
+        </h3>
+        <ul class="space-y-2">
+          {links.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-[#94a3b8] hover:text-[#f59e0b] transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-sm font-semibold text-[#e2e8f0] uppercase tracking-wider mb-4">
+          {t.footer.contact}
+        </h3>
+        <div class="space-y-4 text-sm text-[#94a3b8]">
+          {showIstanbul && (
+            <div>
+              <p class="font-medium text-[#e2e8f0] mb-1">Istanbul</p>
+              <p>{istanbul.address}</p>
+              <a href={`tel:${istanbul.phone.replace(/[\s()]/g, '')}`} class="hover:text-[#f59e0b] transition-colors duration-200">
+                {istanbul.phone}
+              </a>
+            </div>
+          )}
+          {showBratislava && (
+            <div>
+              <p class="font-medium text-[#e2e8f0] mb-1">Bratislava</p>
+              <p>{bratislava.address}</p>
+              <a href={`tel:${bratislava.phone.replace(/[\s()]/g, '')}`} class="hover:text-[#f59e0b] transition-colors duration-200">
+                {bratislava.phone}
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h3 class="text-sm font-semibold text-[#e2e8f0] uppercase tracking-wider mb-4">
+          {t.footer.newsletter}
+        </h3>
+        <form class="flex flex-col gap-2" onsubmit="return false;">
+          <input
+            type="email"
+            placeholder="email@example.com"
+            class="w-full px-3 py-2 bg-[#0a1628] border border-[#1e3a5f] rounded text-sm text-[#e2e8f0] placeholder-[#94a3b8] focus:outline-none focus:border-[#f59e0b] transition-colors duration-200"
+          />
+          <button
+            type="submit"
+            class="px-4 py-2 bg-[#f59e0b] text-[#0a1628] font-semibold text-sm rounded hover:bg-[#d97706] transition-colors duration-200"
+          >
+            {t.footer.subscribe}
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-10 pt-6 border-t border-[#1e3a5f] text-center text-sm text-[#94a3b8]">
+      &copy; {currentYear} TURKAY. {t.footer.rights}
+    </div>
+  </div>
+</footer>
