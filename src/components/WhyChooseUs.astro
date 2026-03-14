@@ -1,0 +1,76 @@
+---
+interface Props {
+  lang?: 'en' | 'tr' | 'sk';
+}
+
+const { lang = 'tr' } = Astro.props;
+
+const reasons = lang === 'tr' ? [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>`,
+    title: "Güvenilir Sonuçlar",
+    description: "10+ yıllık sektör deneyimimle, her projede güvenilir ve ölçülebilir sonuçlar sunuyorum."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+    title: "Hızlı Uygulama",
+    description: "Çevik metodolojimle projelerinizi hızla hayata geçiriyorum."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+    title: "Uçtan Uca Çözümler",
+    description: "Yazılım, bulut ve danışmanlık hizmetlerimle tek noktadan komple çözümler üretiyorum."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>`,
+    title: "İnovasyon Odaklı",
+    description: "Yapay zeka ve yeni teknolojileri entegre ederek rekabet avantajı sağlayan çözümler sunuyorum."
+  }
+] : [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>`,
+    title: "Reliable Results",
+    description: "With 10+ years of industry experience, I deliver reliable and measurable results."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+    title: "Quick Implementation",
+    description: "Using agile methodology, I bring your projects to life rapidly."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+    title: "End-to-End Solutions",
+    description: "Complete solutions from a single point with software, cloud and consulting services."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>`,
+    title: "Innovation Focused",
+    description: "Delivering competitive advantage by integrating AI and emerging technologies."
+  }
+];
+---
+<section class="py-16 bg-[#1A2B50]">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="section-heading text-center">{lang === 'tr' ? 'Neden Beni Seçmelisiniz?' : 'Why Choose Me?'}</h2>
+    <p class="section-subheading text-center">
+      {lang === 'tr' ? 'İşinizi bir sonraki seviyeye taşımanıza yardımcı olacak çözümler sunuyorum.' : 'Solutions to help take your business to the next level.'}
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+      {reasons.map((reason, i) => (
+        <div
+          class="bg-[#1A2B50] rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#1e3a5f]/30 animate-fadeInUp"
+          style={`animation-delay: ${i * 100}ms; animation-fill-mode: forwards;`}
+        >
+          <div class="flex flex-col items-center text-center">
+            <div class="w-14 h-14 flex items-center justify-center bg-[#192749] rounded-full mb-4">
+              <Fragment set:html={reason.icon} />
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-[#e2e8f0]">{reason.title}</h3>
+            <p class="text-[#94a3b8]">{reason.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

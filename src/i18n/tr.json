@@ -1,26 +1,24 @@
 {
   "nav": {
     "home": "Ana Sayfa",
-    "services": "Hizmetlerimiz",
-    "solutions": "Çözümlerimiz",
-    "projects": "Projelerimiz",
+    "services": "Hizmetlerim",
+    "solutions": "Çözümlerim",
+    "projects": "Projelerim",
     "blog": "Yazılar",
-    "contact": "Bize Ulaşın"
+    "contact": "İletişim"
   },
   "hero": {
     "cta": "Başlayalım"
   },
   "sections": {
-    "whyUs": "Neden Bizi Seçmelisiniz?",
-    "stats": "Rakamlarla Başarılarımız",
-    "methodology": "Çalışma Metodolojimiz",
-    "projects": "Son Projelerimiz",
-    "testimonials": "Müşteri Görüşleri",
-    "team": "Ekibimiz",
+    "whyUs": "Neden Beni Seçmelisiniz?",
+    "stats": "Rakamlarla Başarılarım",
+    "methodology": "Çalışma Metodolojim",
+    "projects": "Son Projelerim",
     "faq": "Sıkça Sorulan Sorular",
     "blog": "Son Yazılar",
-    "tools": "Yapay Zeka Araçlarımız",
-    "services": "Hizmetlerimiz"
+    "tools": "Yapay Zeka Araçlarım",
+    "services": "Hizmetlerim"
   },
   "footer": {
     "rights": "Tüm hakları saklıdır.",
@@ -31,7 +29,7 @@
   },
   "cta": {
     "learnMore": "Detayları İncele",
-    "contactUs": "Bize Ulaşın",
+    "contactUs": "İletişime Geç",
     "viewProject": "Projeyi Görüntüle",
     "readMore": "Devamını Oku",
     "allPosts": "Tüm Yazılar"

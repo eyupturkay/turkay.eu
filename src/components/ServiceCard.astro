@@ -4,19 +4,51 @@ interface Props {
   description: string;
   icon: string;
   href: string;
+  features?: string[];
+  backgroundImage?: string;
 }
 
-const { title, description, icon, href } = Astro.props;
+const { title, description, icon, href, features, backgroundImage } = Astro.props;
 ---
-<a href={href} class="group block bg-[#111d33] border border-[#1e3a5f] rounded-xl p-6 sm:p-8 transition-all duration-300 hover:border-[#f59e0b]/50 hover:shadow-lg hover:shadow-[#f59e0b]/5">
-  <div class="text-3xl mb-4" set:html={icon} />
-  <h3 class="text-lg font-semibold text-[#e2e8f0] group-hover:text-[#f59e0b] transition-colors duration-200">
-    {title}
-  </h3>
-  <p class="mt-2 text-sm text-[#94a3b8] leading-relaxed">
-    {description}
-  </p>
-  <span class="inline-block mt-4 text-sm font-medium text-[#f59e0b] group-hover:translate-x-1 transition-transform duration-200">
-    &rarr;
-  </span>
+<a href={href} class="group block rounded-xl overflow-hidden transition-all duration-500 hover:scale-[1.02] border border-[#0B3C5D]/30" style="background: linear-gradient(#111d33, #111d33) padding-box, linear-gradient(to right, #0B3C5D, #0B3C5D) border-box;">
+  <!-- Image/gradient header -->
+  <div class="w-full h-40 relative overflow-hidden">
+    {backgroundImage ? (
+      <img src={backgroundImage} alt={title} class="w-full h-full object-cover" loading="lazy" />
+    ) : (
+      <div class="absolute inset-0 bg-gradient-to-br from-[#1D7874]/80 to-[#0B3C5D]/80"></div>
+    )}
+    <!-- Icon overlay -->
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="bg-white/20 backdrop-blur-sm border border-[#FFBC42]/20 p-4 rounded-full transition-all duration-300 group-hover:scale-110 group-hover:border-[#FFBC42]/40">
+        <span class="text-3xl" set:html={icon} />
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="p-6 bg-[#192749]">
+    <h3 class="text-lg font-bold text-[#FFBC42] group-hover:text-[#FFBC42]/90 transition-colors duration-200">
+      {title}
+    </h3>
+    <p class="mt-2 text-sm text-white/90 leading-relaxed">
+      {description}
+    </p>
+
+    {features && features.length > 0 && (
+      <ul class="mt-4 space-y-1.5">
+        {features.map((f) => (
+          <li class="flex items-start text-sm">
+            <span class="text-[#FFBC42] mr-2 mt-0.5">•</span>
+            <span class="text-white/80">{f}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <span class="inline-flex items-center mt-4 text-sm font-medium text-white group-hover:text-[#FFBC42] transition-colors duration-200">
+      Detayları İncele
+      <svg class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </span>
+  </div>
 </a>

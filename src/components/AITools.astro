@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  lang?: 'en' | 'tr' | 'sk';
+}
+
+const { lang = 'tr' } = Astro.props;
+
+const collectionName = `${lang}-tools` as any;
+let tools: any[] = [];
+try {
+  tools = (await getCollection(collectionName)).sort((a: any, b: any) => (a.data.order ?? 99) - (b.data.order ?? 99));
+} catch (e) {
+  tools = [];
+}
+
+const title = lang === 'tr' ? 'Yapay Zeka Araçlarım' : 'My AI Tools';
+const subtitle = lang === 'tr' ? 'İşinizi ve eğitim süreçlerinizi güçlendiren, son teknoloji yapay zeka araçları' : 'Cutting-edge AI tools that power your business and learning processes';
+const ctaTitle = lang === 'tr' ? 'Özel AI çözümlerine mi ihtiyacınız var?' : 'Need custom AI solutions?';
+const ctaText = lang === 'tr' ? 'İşletmenize özel yapay zeka çözümleri geliştiriyorum.' : 'I develop custom AI solutions for your business.';
+const ctaButton = lang === 'tr' ? 'İletişime Geçin' : 'Contact Me';
+const ctaHref = lang === 'tr' ? '/tr/iletisim' : '/contact';
+const detailsText = lang === 'tr' ? 'Detayları İncele' : 'Learn More';
+---
+<section class="py-16 blueprint-bg">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="section-heading text-center">{title}</h2>
+    <p class="section-subheading text-center">{subtitle}</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      {tools.map((tool, i) => (
+        <div
+          class="bg-[#192749] border border-[#1e3a5f]/30 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fadeInUp"
+          style={`animation-delay: ${i * 100}ms; animation-fill-mode: forwards;`}
+        >
+          <div class="w-14 h-14 rounded-full bg-[#1A2B50] flex items-center justify-center mb-4 text-2xl">
+            {tool.data.icon || '🤖'}
+          </div>
+
+          {tool.data.tags && (
+            <div class="mb-3 flex flex-wrap gap-2">
+              {tool.data.tags.map((tag: string) => (
+                <span class="text-xs font-medium bg-[#4AA9F5]/20 text-[#4AA9F5] px-2 py-1 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <h3 class="text-lg font-bold text-[#e2e8f0] mb-2">{tool.data.title}</h3>
+          <p class="text-[#94a3b8] mb-4 text-sm">{tool.data.description}</p>
+
+          <span class="text-[#4AA9F5] hover:text-[#FFBC42] text-sm font-medium transition-colors cursor-pointer">
+            {detailsText} →
+          </span>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="mt-12 bg-gradient-to-r from-[#4AA9F5]/20 to-[#FFBC42]/20 rounded-xl p-8 backdrop-blur-sm border border-[#1e3a5f]/30">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-2xl font-bold text-[#e2e8f0] mb-2">{ctaTitle}</h3>
+          <p class="text-[#94a3b8]">{ctaText}</p>
+        </div>
+        <a href={ctaHref} class="bg-[#FFBC42] hover:bg-[#FFBC42]/90 text-black px-6 py-3 rounded-lg font-bold transition-all flex items-center gap-2 whitespace-nowrap">
+          {ctaButton} →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

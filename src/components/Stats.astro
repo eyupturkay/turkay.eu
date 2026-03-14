@@ -1,45 +1,40 @@
 ---
 interface Props {
   stats: { value: string; label: string }[];
+  title?: string;
+  subtitle?: string;
 }
 
-const { stats } = Astro.props;
+const { stats, title, subtitle } = Astro.props;
 ---
-<section class="py-12 sm:py-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="bg-[#111d33] border border-[#1e3a5f] rounded-2xl p-8 sm:p-10">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        {stats.map((stat) => (
-          <div class="text-center stat-item">
-            <div class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#f59e0b] stat-value">
-              {stat.value}
-            </div>
-            <div class="mt-2 text-sm sm:text-base text-[#94a3b8]">
-              {stat.label}
-            </div>
-          </div>
-        ))}
-      </div>
+<section class="py-16 bg-gradient-to-b from-[#1A2B50] to-[#192749] relative overflow-hidden">
+  <!-- Background blur orbs -->
+  <div class="absolute top-20 left-20 w-64 h-64 rounded-full bg-[#4AA9F5] blur-[100px] opacity-10"></div>
+  <div class="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-[#FFBC42] blur-[100px] opacity-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    {title && <h2 class="section-heading text-center">{title}</h2>}
+    {subtitle && <p class="section-subheading text-center">{subtitle}</p>}
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8">
+      {stats.map((stat, i) => (
+        <div class="bg-gradient-to-b from-[#192749]/80 to-[#1A2B50]/90 rounded-xl p-8 shadow-lg flex flex-col items-center text-center border border-[#4AA9F5]/10 stat-item">
+          <h3 class="text-4xl lg:text-5xl font-extrabold text-[#FFBC42] mb-2 stat-value">
+            {stat.value}
+          </h3>
+          <p class="text-white/80 text-lg">{stat.label}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
 <style>
   @keyframes countUp {
-    from {
-      opacity: 0;
-      transform: translateY(16px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  .stat-item {
-    animation: countUp 0.6s ease-out both;
-  }
-
+  .stat-item { animation: countUp 0.6s ease-out both; }
   .stat-item:nth-child(1) { animation-delay: 0.1s; }
   .stat-item:nth-child(2) { animation-delay: 0.2s; }
   .stat-item:nth-child(3) { animation-delay: 0.3s; }

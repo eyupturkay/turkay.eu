@@ -4,56 +4,146 @@ import Hero from '../../components/Hero.astro';
 import Stats from '../../components/Stats.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import WhyChooseUs from '../../components/WhyChooseUs.astro';
+import Partners from '../../components/Partners.astro';
+import Methodology from '../../components/Methodology.astro';
+import AITools from '../../components/AITools.astro';
 import { getCollection } from 'astro:content';
 import tr from '../../i18n/tr.json';
 
 const services = (await getCollection('tr-services')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
-const projects = (await getCollection('tr-projects')).sort((a, b) => new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime()).slice(0, 3);
-const testimonials = await getCollection('tr-testimonials');
+const projects = (await getCollection('tr-projects')).sort((a, b) => new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime()).slice(0, 6);
 const blogs = (await getCollection('tr-blog')).sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()).slice(0, 3);
+const faqs = (await getCollection('tr-faq')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 
 const stats = [
-  { value: '43+', label: 'Tamamlanan Proje' },
-  { value: '15+', label: 'Kurumsal Müşteri' },
-  { value: '10+', label: 'Yıllık Deneyim' },
-  { value: '3', label: 'Global Ofis' },
+  { value: '350+', label: 'Tamamlanan Proje' },
+  { value: '120+', label: 'Mutlu Müşteri' },
+  { value: '15+', label: 'Yıllık Deneyim' },
+  { value: '%99', label: 'Zamanında Teslim' },
 ];
 ---
-<TrLayout title="Entegre Dijital Çözümler" description="TURKAY, işletmeler için yapay zeka, bulut ve yazılım çözümleri sunar. İstanbul ve Bratislava ofisleri.">
-  <Hero title="Geleceğin Zorluklarına Akıllı Çözümler" subtitle="Yapay zeka uzmanlığı, bulut mühendisliği ve full-stack geliştirme ile gerçek iş etkisi yaratan teknolojiler sunuyoruz." ctaText={tr.hero.cta} ctaHref="/tr/iletisim" lang="tr" />
+<TrLayout title="Entegre Dijital Çözümler Hub" description="Yapay zeka, bulut ve yazılım çözümleri sunan freelance yazılım danışmanı. Bratislava merkezli, global hizmet.">
 
-  <Stats stats={stats} />
+  <!-- 1. Hero -->
+  <Hero
+    title="Entegre Dijital Çözümler"
+    subtitle="İşletmenizin dijital dönüşümünü hızlandıracak yapay zeka, bulut mühendisliği ve full-stack yazılım çözümleri sunuyorum."
+    ctaText="Hizmetlerimi Keşfedin"
+    ctaHref="/tr/hizmetlerimiz"
+    secondaryCtaText="Çözümlerimi Görün"
+    secondaryCtaHref="/tr/cozumlerimiz"
+    lang="tr"
+  />
 
-  <section class="max-w-7xl mx-auto px-4 py-20">
-    <h2 class="text-3xl font-bold text-center mb-12">{tr.sections.services}</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      {services.map(s => <ServiceCard title={s.data.title} description={s.data.description} icon={s.data.icon} href="/tr/hizmetlerimiz" />)}
+  <!-- 2. Neden Beni Seçmelisiniz -->
+  <WhyChooseUs lang="tr" />
+
+  <!-- 3. İstatistikler -->
+  <Stats stats={stats} title="Rakamlarla Başarılarım" subtitle="Yılların deneyimi ve müşteri memnuniyetiyle elde ettiğim sonuçlar" />
+
+  <!-- 4. Hizmetlerim -->
+  <section id="hizmetlerimiz" class="py-16 bg-[#1A2B50]">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="section-heading text-center">Hizmetlerim</h2>
+      <p class="section-subheading text-center">İş hedeflerinize ulaşmanıza ve anlamlı dijital deneyimler yaratmanıza yardımcı olmak için geniş bir hizmet yelpazesi sunuyorum.</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map(s => (
+          <ServiceCard
+            title={s.data.title}
+            description={s.data.description}
+            icon={s.data.icon ?? '💻'}
+            href="/tr/hizmetlerimiz"
+            features={s.data.features}
+          />
+        ))}
+      </div>
     </div>
   </section>
 
-  <section class="max-w-7xl mx-auto px-4 py-20">
-    <h2 class="text-3xl font-bold text-center mb-12">{tr.sections.projects}</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      {projects.map(p => <ProjectCard title={p.data.title} description={p.data.description} category={p.data.category} tags={p.data.tags} href="/tr/projelerimiz" />)}
+  <!-- 5. AI Araçlarım -->
+  <AITools lang="tr" />
+
+  <!-- 6. Çalışma Metodolojim -->
+  <Methodology lang="tr" />
+
+  <!-- 7. Projelerim -->
+  <section id="projelerimiz" class="py-16 bg-[#1A2B50]">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="section-heading text-center">Son Projelerim</h2>
+      <p class="section-subheading text-center">Profesyonel çalışmalarımın ve başarılarımın gösterimi</p>
+      <div class="w-20 h-1 bg-[#29A8FF] mx-auto mb-10 rounded-full"></div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map(p => (
+          <ProjectCard
+            title={p.data.title}
+            description={p.data.description}
+            category={p.data.category}
+            tags={p.data.tags ?? []}
+            href="/tr/projelerimiz"
+            image={p.data.image}
+          />
+        ))}
+      </div>
     </div>
   </section>
 
-  <section class="max-w-7xl mx-auto px-4 py-20">
-    <h2 class="text-3xl font-bold text-center mb-12">{tr.sections.testimonials}</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      {testimonials.map(t => <TestimonialCard name={t.data.name} role={t.data.role} company={t.data.company} content={t.body ?? ''} rating={t.data.rating} />)}
+  <!-- 8. Teknoloji Ortaklarım -->
+  <Partners title="Teknoloji Ortaklarım" subtitle="Lider teknoloji sağlayıcılarıyla işbirliği yaparak en yenilikçi çözümleri sunuyorum" />
+
+  <!-- 9. SSS -->
+  <section id="sss" class="py-16 bg-[#192749]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row gap-12">
+        <div class="md:w-1/3">
+          <div class="sticky top-24">
+            <div class="text-5xl mb-4">❓</div>
+            <h2 class="section-heading">Sıkça Sorulan Sorular</h2>
+            <p class="text-white/80 mb-6">
+              En sık sorulan sorular ve yanıtları. Başka sorularınız varsa, lütfen benimle iletişime geçin.
+            </p>
+            <a href="/tr/iletisim" class="inline-block px-6 py-3 bg-[#FFBC42] text-[#0a1628] font-bold rounded-lg hover:bg-[#FFBC42]/90 transition-colors">
+              İletişime Geç
+            </a>
+          </div>
+        </div>
+        <div class="md:w-2/3">
+          <FAQ items={faqs.map(f => ({ question: f.data.question, answer: f.body ?? '' }))} />
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="max-w-7xl mx-auto px-4 py-20">
-    <h2 class="text-3xl font-bold text-center mb-12">{tr.sections.blog}</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      {blogs.map(b => <BlogCard title={b.data.title} description={b.data.description} date={b.data.date} author={b.data.author} category={b.data.category} readTime={b.data.readTime} href={`/tr/yazilar/${b.id}`} />)}
+  <!-- 10. Blog -->
+  <section id="yazilar" class="py-16 bg-[#1A2B50]">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="section-heading text-center">Son Yazılar</h2>
+      <p class="section-subheading text-center">Teknoloji dünyasındaki son gelişmeler ve uzman görüşlerim</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        {blogs.map(b => (
+          <BlogCard
+            title={b.data.title}
+            description={b.data.description}
+            date={b.data.date}
+            author={b.data.author}
+            category={b.data.category}
+            readTime={b.data.readTime}
+            href={`/tr/yazilar/${b.id}`}
+          />
+        ))}
+      </div>
     </div>
   </section>
 
-  <CTA title="İşletmenizi Dönüştürmeye Hazır mısınız?" description="Yapay zeka, bulut ve geliştirme uzmanlığımızın dijital dönüşümünüzü nasıl hızlandırabileceğini konuşalım." buttonText={tr.cta.contactUs} buttonHref="/tr/iletisim" />
+  <!-- 11. CTA -->
+  <CTA
+    title="Dijital Dönüşümünüze Hazır mısınız?"
+    description="Yapay zeka, bulut ve yazılım uzmanlığımın dijital dönüşümünüzü nasıl hızlandırabileceğini konuşalım."
+    buttonText={tr.cta.contactUs}
+    buttonHref="/tr/iletisim"
+  />
+
 </TrLayout>
