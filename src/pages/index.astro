@@ -1,59 +1,94 @@
 ---
 import EnLayout from '../layouts/EnLayout.astro';
 import Hero from '../components/Hero.astro';
-import Stats from '../components/Stats.astro';
+import TargetAudience from '../components/TargetAudience.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import Pricing from '../components/Pricing.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import TestimonialCard from '../components/TestimonialCard.astro';
 import BlogCard from '../components/BlogCard.astro';
 import CTA from '../components/CTA.astro';
+import FAQ from '../components/FAQ.astro';
 import { getCollection } from 'astro:content';
 import en from '../i18n/en.json';
 
 const services = (await getCollection('en-services')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
-const projects = (await getCollection('en-projects')).sort((a, b) => new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime()).slice(0, 3);
-const testimonials = await getCollection('en-testimonials');
-const blogs = (await getCollection('en-blog')).sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()).slice(0, 3);
-
-const stats = [
-  { value: '43+', label: 'Projects Delivered' },
-  { value: '15+', label: 'Enterprise Clients' },
-  { value: '10+', label: 'Years Experience' },
-  { value: '3', label: 'Global Offices' },
-];
+const projects = (await getCollection('en-projects')).sort((a, b) => new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime()).slice(0, 4);
+const faqs = (await getCollection('en-faq')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 ---
-<EnLayout title="Integrated Digital Solutions" description="TURKAY provides AI, cloud, and software solutions for enterprises. Offices in Istanbul and Bratislava.">
-  <Hero title="Building Intelligent Solutions for Tomorrow's Challenges" subtitle="We combine AI expertise, cloud engineering, and full-stack development to deliver technology that drives real business impact." ctaText={en.hero.cta} ctaHref="/contact" lang="en" />
+<EnLayout title="Senior AI & Software Architect" description="Software, automation, and AI solutions for businesses in Central Europe. Based in Bratislava, 30+ years of experience.">
 
-  <Stats stats={stats} />
+  <!-- 1. Hero -->
+  <Hero
+    title={en.hero.title}
+    subtitle={en.hero.subtitle}
+    ctaText={en.hero.cta}
+    ctaHref="/contact"
+    secondaryCtaText={en.hero.secondaryCta}
+    secondaryCtaHref="/services"
+    badge={en.hero.badge}
+    lang="en"
+  />
 
-  <section class="max-w-7xl mx-auto px-4 py-20">
-    <h2 class="text-3xl font-bold text-center mb-12">{en.sections.services}</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      {services.map(s => <ServiceCard title={s.data.title} description={s.data.description} icon={s.data.icon} href="/services" />)}
+  <!-- 2. Who I Work With -->
+  <TargetAudience lang="en" />
+
+  <!-- 3. Why Choose Me -->
+  <WhyChooseUs lang="en" />
+
+  <!-- 4. Services -->
+  <section id="services" class="py-16 bg-[#1A2B50]">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="section-heading text-center">{en.sections.services}</h2>
+      <p class="section-subheading text-center">{en.sections.servicesSubtitle}</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        {services.map(s => <ServiceCard title={s.data.title} description={s.data.description} icon={s.data.icon} href="/services" features={s.data.features} />)}
+      </div>
     </div>
   </section>
 
-  <section class="max-w-7xl mx-auto px-4 py-20">
-    <h2 class="text-3xl font-bold text-center mb-12">{en.sections.projects}</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      {projects.map(p => <ProjectCard title={p.data.title} description={p.data.description} category={p.data.category} tags={p.data.tags} href={`/projects`} />)}
+  <!-- 5. Pricing -->
+  <Pricing lang="en" />
+
+  <!-- 6. Projects -->
+  <section id="projects" class="py-16 bg-[#1A2B50]">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="section-heading text-center">{en.sections.projects}</h2>
+      <p class="section-subheading text-center">{en.sections.projectsSubtitle}</p>
+      <div class="w-20 h-1 bg-[#29A8FF] mx-auto mb-10 rounded-full"></div>
+      <div class="grid md:grid-cols-2 gap-6">
+        {projects.map(p => <ProjectCard title={p.data.title} description={p.data.description} category={p.data.category} tags={p.data.tags} href="/projects" />)}
+      </div>
     </div>
   </section>
 
-  <section class="max-w-7xl mx-auto px-4 py-20">
-    <h2 class="text-3xl font-bold text-center mb-12">{en.sections.testimonials}</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      {testimonials.map(t => <TestimonialCard name={t.data.name} role={t.data.role} company={t.data.company} content={t.body ?? ''} rating={t.data.rating} />)}
+  <!-- 7. FAQ -->
+  <section id="faq" class="py-16 bg-[#192749]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row gap-12">
+        <div class="md:w-1/3">
+          <div class="sticky top-24">
+            <div class="text-5xl mb-4">❓</div>
+            <h2 class="section-heading">{en.sections.faq}</h2>
+            <p class="text-white/80 mb-6">{en.sections.faqSubtitle}</p>
+            <a href="/contact" class="inline-block px-6 py-3 bg-[#FFBC42] text-[#0a1628] font-bold rounded-lg hover:bg-[#FFBC42]/90 transition-colors">
+              {en.cta.contactUs}
+            </a>
+          </div>
+        </div>
+        <div class="md:w-2/3">
+          <FAQ items={faqs.map(f => ({ question: f.data.question, answer: f.body ?? '' }))} />
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="max-w-7xl mx-auto px-4 py-20">
-    <h2 class="text-3xl font-bold text-center mb-12">{en.sections.blog}</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      {blogs.map(b => <BlogCard title={b.data.title} description={b.data.description} date={b.data.date} author={b.data.author} category={b.data.category} readTime={b.data.readTime} href={`/blog/${b.id}`} />)}
-    </div>
-  </section>
+  <!-- 8. CTA -->
+  <CTA
+    title="Ready to Transform Your Business?"
+    description="With 30+ years of experience, let's accelerate your digital transformation — fast, secure, and cost-effective."
+    buttonText={en.cta.contactUs}
+    buttonHref="/contact"
+  />
 
-  <CTA title="Ready to Transform Your Business?" description="Let's discuss how our AI, cloud, and development expertise can accelerate your digital transformation." buttonText={en.cta.contactUs} buttonHref="/contact" />
 </EnLayout>

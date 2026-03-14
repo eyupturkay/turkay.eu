@@ -2,38 +2,47 @@
   "nav": {
     "home": "Domov",
     "services": "Služby",
-    "solutions": "Riešenia",
     "projects": "Projekty",
     "blog": "Blog",
     "contact": "Kontakt"
   },
   "hero": {
-    "cta": "Začať"
+    "badge": "Nezávislý softvérový konzultant v Bratislave",
+    "title": "Stále riadite firmu cez Excel a WhatsApp?",
+    "subtitle": "Váš partner pre digitálnu transformáciu v strednej Európe. Automatizácia, vlastný softvér a AI riešenia.",
+    "cta": "Bezplatná konzultácia",
+    "secondaryCta": "Pozrieť služby"
   },
   "sections": {
-    "whyUs": "Prečo si vybrať nás?",
-    "stats": "Naše čísla",
-    "methodology": "Náš proces",
+    "whyUs": "Prečo si vybrať mňa?",
+    "whyUsSubtitle": "S 30-ročnými skúsenosťami poskytujem riešenia na mieru pre firmy v Európe.",
+    "services": "Moje služby",
+    "servicesSubtitle": "Opakujúce sa úlohy vám kradnú čas? Nechajte ma automatizovať vaše procesy.",
     "projects": "Posledné projekty",
-    "testimonials": "Referencie klientov",
-    "team": "Náš tím",
+    "projectsSubtitle": "Ukážky mojej profesionálnej práce a úspechov",
     "faq": "Často kladené otázky",
+    "faqSubtitle": "Najčastejšie otázky a odpovede. Ak máte ďalšie otázky, kontaktujte ma.",
     "blog": "Najnovšie články",
-    "tools": "AI nástroje",
-    "services": "Naše služby"
+    "pricing": "Moje balíky",
+    "pricingSubtitle": "Jasná cena, jasný výsledok.",
+    "targetAudience": "Pre koho pracujem?",
+    "targetAudienceSubtitle": "Riešenia na mieru pre firmy v strednej Európe"
   },
   "footer": {
     "rights": "Všetky práva vyhradené.",
     "quickLinks": "Rýchle odkazy",
     "contact": "Kontakt",
     "newsletter": "Zostaňte informovaní",
-    "subscribe": "Odoberať"
+    "subscribe": "Odoberať",
+    "techPartners": "Technologický ekosystém"
   },
   "cta": {
     "learnMore": "Zistiť viac",
-    "contactUs": "Kontaktujte nás",
+    "contactUs": "Kontaktujte ma",
     "viewProject": "Zobraziť projekt",
     "readMore": "Čítať ďalej",
-    "allPosts": "Všetky články"
+    "allPosts": "Všetky články",
+    "getQuote": "Získať ponuku",
+    "bookCall": "Dohodnúť hovor"
   }
 }

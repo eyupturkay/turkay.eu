@@ -2,36 +2,81 @@
   "nav": {
     "home": "Ana Sayfa",
     "services": "Hizmetlerim",
-    "solutions": "Çözümlerim",
     "projects": "Projelerim",
     "blog": "Yazılar",
     "contact": "İletişim"
   },
   "hero": {
-    "cta": "Başlayalım"
+    "badge": "Slovakya Merkezli Bağımsız Yazılım Danışmanı",
+    "title": "Hâlâ Excel ve WhatsApp'la mı Yönetiyorsunuz?",
+    "subtitle": "Avrupa'daki Türk işletmelerinin dijital dönüşüm ortağı. Otomasyon, özel yazılım ve AI ile işinizi 10 kat hızlandırın.",
+    "cta": "Ücretsiz Görüşme Al",
+    "secondaryCta": "Hizmetlerimi İncele"
   },
   "sections": {
     "whyUs": "Neden Beni Seçmelisiniz?",
-    "stats": "Rakamlarla Başarılarım",
-    "methodology": "Çalışma Metodolojim",
+    "whyUsSubtitle": "30 yıllık deneyimimle, Avrupa'daki Türk işletmelerine özel çözümler sunuyorum.",
+    "stats": "Rakamlarla",
+    "services": "Hizmetlerim",
+    "servicesSubtitle": "Tekrarlayan işler zamanınızı mı çalıyor? İş süreçlerinizi otomatikleştireyim.",
     "projects": "Son Projelerim",
+    "projectsSubtitle": "Profesyonel çalışmalarımın ve başarılarımın gösterimi",
     "faq": "Sıkça Sorulan Sorular",
+    "faqSubtitle": "En sık sorulan sorular ve yanıtları. Başka sorularınız varsa, lütfen benimle iletişime geçin.",
     "blog": "Son Yazılar",
-    "tools": "Yapay Zeka Araçlarım",
-    "services": "Hizmetlerim"
+    "pricing": "Paketlerim",
+    "pricingSubtitle": "Yazılıma ne kadar bütçe ayırmalıyım? Net fiyat, net sonuç.",
+    "targetAudience": "Kimler İçin Çalışıyorum?",
+    "targetAudienceSubtitle": "Avrupa'daki Türk işletmelerine özel çözümler"
   },
   "footer": {
     "rights": "Tüm hakları saklıdır.",
     "quickLinks": "Hızlı Erişim",
     "contact": "İletişim",
     "newsletter": "Gelişmelerden Haberdar Olun",
-    "subscribe": "Abone Ol"
+    "subscribe": "Abone Ol",
+    "techPartners": "Teknoloji Ekosistemi"
   },
   "cta": {
     "learnMore": "Detayları İncele",
     "contactUs": "İletişime Geç",
     "viewProject": "Projeyi Görüntüle",
     "readMore": "Devamını Oku",
-    "allPosts": "Tüm Yazılar"
+    "allPosts": "Tüm Yazılar",
+    "getQuote": "Teklif Al",
+    "bookCall": "Görüşme Planla"
+  },
+  "pricing": {
+    "popular": "Popüler",
+    "packages": [
+      {
+        "name": "Web Sitesi Paketi",
+        "description": "Kurumsal web sitesi, SEO altyapısı dahil",
+        "price": "€600 – €1.200",
+        "features": ["5 sayfalık site", "Mobil uyumlu", "SEO optimizasyonu", "İletişim formu", "1 ay destek"],
+        "bonus": "Ücretsiz 30 dk dijital strateji görüşmesi",
+        "guarantee": "Beğenmezseniz revizyon ücretsiz",
+        "cta": "Teklif Al"
+      },
+      {
+        "name": "Otomasyon Paketi",
+        "description": "İş süreç otomasyonu, n8n kurulumu",
+        "price": "€800 – €2.000",
+        "features": ["İhtiyaç analizi", "2-3 otomasyon akışı", "n8n kurulumu", "AI entegrasyonu", "Eğitim"],
+        "bonus": "1 ay ücretsiz teknik destek",
+        "guarantee": "Çalışmazsa para iadesi",
+        "cta": "Teklif Al",
+        "highlighted": true
+      },
+      {
+        "name": "Aylık Danışmanlık",
+        "description": "Sürekli teknik destek ve geliştirme",
+        "price": "€300 – €900/ay",
+        "features": ["Aylık teknik danışmanlık", "Öncelikli destek", "Küçük geliştirmeler", "Performans izleme", "Aylık rapor"],
+        "bonus": "İlk ay acil destek hattı dahil",
+        "guarantee": "İlk ay memnun kalmazsan ücretsiz çıkış",
+        "cta": "Görüşme Planla"
+      }
+    ]
   }
 }

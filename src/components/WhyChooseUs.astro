@@ -7,54 +7,78 @@ const { lang = 'tr' } = Astro.props;
 
 const reasons = lang === 'tr' ? [
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>`,
-    title: "Güvenilir Sonuçlar",
-    description: "10+ yıllık sektör deneyimimle, her projede güvenilir ve ölçülebilir sonuçlar sunuyorum."
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    title: "30+ Yıl Deneyim",
+    description: "Türkiye ve Avrupa'da kurumsal projelerde kanıtlanmış mühendislik geçmişi."
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
-    title: "Hızlı Uygulama",
-    description: "Çevik metodolojimle projelerinizi hızla hayata geçiriyorum."
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+    title: "6 Ülke Portföyü",
+    description: "Slovakya, Türkiye, Avusturya, Çekya, Almanya ve İngiltere'de müşteriler."
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
-    title: "Uçtan Uca Çözümler",
-    description: "Yazılım, bulut ve danışmanlık hizmetlerimle tek noktadan komple çözümler üretiyorum."
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+    title: "AI & Otomasyon Uzmanı",
+    description: "n8n, LLM entegrasyonu ve özel ML model geliştirme."
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>`,
-    title: "İnovasyon Odaklı",
-    description: "Yapay zeka ve yeni teknolojileri entegre ederek rekabet avantajı sağlayan çözümler sunuyorum."
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+    title: "Tek Muhatap",
+    description: "Ajans karmaşası yok. Direkt senior mühendisle çalışın."
+  }
+] : lang === 'sk' ? [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    title: "30+ rokov skúseností",
+    description: "Overené inžinierske skúsenosti v korporátnych projektoch v Turecku a Európe."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+    title: "6 krajín",
+    description: "Klienti na Slovensku, v Turecku, Rakúsku, Česku, Nemecku a Spojenom kráľovstve."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+    title: "AI & Automatizácia",
+    description: "n8n, integrácia LLM a vývoj vlastných ML modelov."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+    title: "Jeden kontakt",
+    description: "Žiadna zložitosť agentúr. Priama práca so senior inžinierom."
   }
 ] : [
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>`,
-    title: "Reliable Results",
-    description: "With 10+ years of industry experience, I deliver reliable and measurable results."
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    title: "30+ Years Experience",
+    description: "Proven engineering track record in enterprise projects across Turkey and Europe."
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
-    title: "Quick Implementation",
-    description: "Using agile methodology, I bring your projects to life rapidly."
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+    title: "6 Country Portfolio",
+    description: "Clients in Slovakia, Turkey, Austria, Czech Republic, Germany, and the UK."
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
-    title: "End-to-End Solutions",
-    description: "Complete solutions from a single point with software, cloud and consulting services."
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+    title: "AI & Automation Expert",
+    description: "n8n workflow automation, LLM integration, and custom ML model development."
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>`,
-    title: "Innovation Focused",
-    description: "Delivering competitive advantage by integrating AI and emerging technologies."
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFBC42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+    title: "Single Point of Contact",
+    description: "No agency complexity. Work directly with a senior engineer."
   }
 ];
+
+const heading = lang === 'tr' ? 'Neden Beni Seçmelisiniz?' : lang === 'sk' ? 'Prečo si vybrať mňa?' : 'Why Choose Me?';
+const subheading = lang === 'tr' ? '30 yıllık deneyimimle, Avrupa\'daki Türk işletmelerine özel çözümler sunuyorum.'
+  : lang === 'sk' ? 'S 30-ročnými skúsenosťami poskytujem riešenia na mieru pre firmy v Európe.'
+  : 'With 30+ years of experience, I deliver tailored solutions for businesses across Europe.';
 ---
 <section class="py-16 bg-[#1A2B50]">
   <div class="max-w-7xl mx-auto px-4">
-    <h2 class="section-heading text-center">{lang === 'tr' ? 'Neden Beni Seçmelisiniz?' : 'Why Choose Me?'}</h2>
-    <p class="section-subheading text-center">
-      {lang === 'tr' ? 'İşinizi bir sonraki seviyeye taşımanıza yardımcı olacak çözümler sunuyorum.' : 'Solutions to help take your business to the next level.'}
-    </p>
+    <h2 class="section-heading text-center">{heading}</h2>
+    <p class="section-subheading text-center">{subheading}</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
       {reasons.map((reason, i) => (

@@ -1,4 +1,6 @@
 ---
+import SchemaOrg from '../components/SchemaOrg.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -12,6 +14,28 @@ const ogLocale = { en: 'en_US', tr: 'tr_TR', sk: 'sk_SK' }[lang];
 const siteUrl = 'https://turkay.eu';
 const currentPath = Astro.url.pathname;
 const canonicalUrl = canonical || `${siteUrl}${currentPath}`;
+
+// Build hreflang map based on current path
+const pathMap: Record<string, Record<string, string>> = {
+  '/': { en: '/', tr: '/tr/', sk: '/sk/' },
+  '/tr/': { en: '/', tr: '/tr/', sk: '/sk/' },
+  '/sk/': { en: '/', tr: '/tr/', sk: '/sk/' },
+  '/services': { en: '/services', tr: '/tr/hizmetlerimiz', sk: '/sk/sluzby' },
+  '/tr/hizmetlerimiz': { en: '/services', tr: '/tr/hizmetlerimiz', sk: '/sk/sluzby' },
+  '/sk/sluzby': { en: '/services', tr: '/tr/hizmetlerimiz', sk: '/sk/sluzby' },
+  '/projects': { en: '/projects', tr: '/tr/projelerimiz', sk: '/sk/projekty' },
+  '/tr/projelerimiz': { en: '/projects', tr: '/tr/projelerimiz', sk: '/sk/projekty' },
+  '/sk/projekty': { en: '/projects', tr: '/tr/projelerimiz', sk: '/sk/projekty' },
+  '/contact': { en: '/contact', tr: '/tr/iletisim', sk: '/sk/kontakt' },
+  '/tr/iletisim': { en: '/contact', tr: '/tr/iletisim', sk: '/sk/kontakt' },
+  '/sk/kontakt': { en: '/contact', tr: '/tr/iletisim', sk: '/sk/kontakt' },
+  '/blog': { en: '/blog', tr: '/tr/yazilar', sk: '/sk/blog' },
+  '/tr/yazilar': { en: '/blog', tr: '/tr/yazilar', sk: '/sk/blog' },
+  '/sk/blog': { en: '/blog', tr: '/tr/yazilar', sk: '/sk/blog' },
+};
+
+const cleanPath = currentPath.replace(/\/$/, '') || '/';
+const hreflangs = pathMap[cleanPath] || pathMap['/'];
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -24,12 +48,29 @@ const canonicalUrl = canonical || `${siteUrl}${currentPath}`;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Hreflang tags -->
+  <link rel="alternate" hreflang="en" href={`${siteUrl}${hreflangs.en}`} />
+  <link rel="alternate" hreflang="tr" href={`${siteUrl}${hreflangs.tr}`} />
+  <link rel="alternate" hreflang="sk" href={`${siteUrl}${hreflangs.sk}`} />
+  <link rel="alternate" hreflang="x-default" href={`${siteUrl}${hreflangs.en}`} />
+
+  <!-- Open Graph -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:locale" content={ogLocale} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalUrl} />
   {ogImage && <meta property="og:image" content={ogImage} />}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+
+  <!-- Schema.org -->
+  <SchemaOrg lang={lang} />
+
   <slot name="head" />
 </head>
 <body class="bg-[#0a1628] text-[#e2e8f0] font-sans antialiased">

@@ -1,8 +1,8 @@
 ---
-title: "Cloud & DevOps"
-description: "Cloud architecture, migration, Kubernetes orchestration, and CI/CD pipeline design across AWS, Azure, and GCP."
-icon: "cloud"
-features: ["Cloud Migration", "Kubernetes & Containers", "CI/CD Pipelines", "Infrastructure as Code", "Cost Optimization"]
-order: 2
+title: "Cloud & System Integration"
+description: "Cloud architecture on AWS, Azure, GCP. Kubernetes, CI/CD pipelines, and system integration."
+icon: "☁️"
+features: ["AWS / Azure / GCP", "Kubernetes & Docker", "CI/CD Pipelines", "System Integration"]
+order: 3
 ---
-We architect and manage cloud environments that scale with your business. Our DevOps practices ensure rapid, reliable deployments with infrastructure automation and monitoring built in from day one.
+I architect and manage cloud environments that scale with your business. System integration, infrastructure automation, and monitoring built in from day one.

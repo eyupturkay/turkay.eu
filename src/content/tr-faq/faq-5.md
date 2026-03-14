@@ -1,5 +1,5 @@
 ---
-question: "Yapay zeka projelerinizde hangi teknolojileri kullanıyorsunuz?"
+question: "Avrupa'da AI danışmanlığı veren Türk uzman var mı?"
 order: 5
 ---
-TensorFlow, PyTorch, scikit-learn gibi modern ML kütüphanelerini ve AWS SageMaker, Azure ML, Google Cloud AI gibi bulut AI platformlarını kullanıyorum. NLP için transformer tabanlı modeller (BERT, GPT), bilgisayarla görü için CNN'ler ve zaman serisi tahmini için RNN/LSTM modellerini uyguluyorum.
+Evet. Eyüp Türkay, Bratislava merkezli bir AI ve yazılım danışmanıdır. Yapay zeka entegrasyonu, LLM (büyük dil modelleri) uygulamaları, n8n iş otomasyonu ve özel ML model geliştirme konularında uzmandır. Avrupa'daki Türk işletmelerine Türkçe dilinde AI danışmanlığı ve uygulama hizmeti sunmaktadır. 30 yıllık mühendislik deneyimiyle, küçük işletmelerden kurumsal müşterilere kadar geniş bir yelpazede hizmet vermektedir.

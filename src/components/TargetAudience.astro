@@ -1,0 +1,54 @@
+---
+interface Props {
+  lang: 'en' | 'tr' | 'sk';
+}
+
+const { lang } = Astro.props;
+
+const sectors = lang === 'tr' ? [
+  { icon: "🏪", title: "Market & Perakende Zincirleri", description: "Stok yönetimi, kampanya otomasyonu ve dijital sipariş sistemleri" },
+  { icon: "🚛", title: "Lojistik & Nakliye Firmaları", description: "Araç takibi, otomatik faturalama ve şoför koordinasyonu" },
+  { icon: "🍽️", title: "Restoran & Kafe İşletmeleri", description: "Online sipariş sistemi, dijital menü ve sadakat programları" },
+  { icon: "📋", title: "Danışmanlık & Göçmenlik Büroları", description: "CRM, dosya takibi ve otomatik randevu yönetimi" },
+  { icon: "🛒", title: "E-Ticaret İşletmeleri", description: "Online mağaza, ödeme entegrasyonu ve stok otomasyonu" },
+  { icon: "🏗️", title: "İnşaat & Emlak Firmaları", description: "Proje yönetimi, teklif otomasyonu ve müşteri takibi" }
+] : lang === 'sk' ? [
+  { icon: "🏪", title: "Maloobchod", description: "Správa zásob, automatizácia kampaní a digitálne objednávky" },
+  { icon: "🚛", title: "Logistika & Doprava", description: "Sledovanie vozidiel, automatická fakturácia" },
+  { icon: "🍽️", title: "Reštaurácie & Kaviarne", description: "Online objednávkový systém, digitálne menu" },
+  { icon: "📋", title: "Poradenstvo", description: "CRM, správa dokumentov a automatizácia" },
+  { icon: "🛒", title: "E-commerce", description: "Online obchod, platobné integrácie" },
+  { icon: "🏗️", title: "Stavebníctvo", description: "Projektové riadenie a automatizácia ponúk" }
+] : [
+  { icon: "🏪", title: "Retail & Grocery Chains", description: "Inventory management, campaign automation, and digital ordering" },
+  { icon: "🚛", title: "Logistics & Transport", description: "Fleet tracking, automated invoicing, and driver coordination" },
+  { icon: "🍽️", title: "Restaurants & Cafes", description: "Online ordering, digital menus, and loyalty programs" },
+  { icon: "📋", title: "Consulting & Immigration", description: "CRM, case tracking, and automated scheduling" },
+  { icon: "🛒", title: "E-Commerce", description: "Online stores, payment integration, and inventory automation" },
+  { icon: "🏗️", title: "Construction & Real Estate", description: "Project management, quote automation, and client tracking" }
+];
+
+const heading = lang === 'tr' ? 'Kimler İçin Çalışıyorum?' : lang === 'sk' ? 'Pre koho pracujem?' : 'Who I Work With';
+const subheading = lang === 'tr' ? 'Avrupa\'daki Türk işletmelerine özel çözümler'
+  : lang === 'sk' ? 'Riešenia na mieru pre firmy v strednej Európe'
+  : 'Tailored solutions for businesses across Central Europe';
+---
+<section class="py-16 bg-[#192749]">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="section-heading text-center">{heading}</h2>
+    <p class="section-subheading text-center">{subheading}</p>
+
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      {sectors.map((sector, i) => (
+        <div
+          class="bg-[#111d33] border border-[#1e3a5f]/30 rounded-xl p-6 hover:border-[#FFBC42]/30 transition-all duration-300 hover:-translate-y-1 animate-fadeInUp"
+          style={`animation-delay: ${i * 80}ms; animation-fill-mode: forwards;`}
+        >
+          <div class="text-3xl mb-3">{sector.icon}</div>
+          <h3 class="text-lg font-bold text-[#e2e8f0] mb-2">{sector.title}</h3>
+          <p class="text-sm text-[#94a3b8]">{sector.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

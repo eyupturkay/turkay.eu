@@ -1,8 +1,8 @@
 ---
-title: "Bulut & DevOps"
-description: "AWS, Azure ve GCP üzerinde bulut mimarisi, geçiş, Kubernetes orkestrasyon ve CI/CD pipeline tasarımı."
+title: "Bulut & Sistem Entegrasyonu"
+description: "AWS, Azure, GCP üzerinde bulut mimarisi, Kubernetes, CI/CD pipeline ve sistem entegrasyonu."
 icon: "☁️"
-features: ["Bulut Göçü", "Kubernetes & Container", "CI/CD Pipeline", "Kod Olarak Altyapı", "Maliyet Optimizasyonu"]
-order: 2
+features: ["AWS / Azure / GCP", "Kubernetes & Docker", "CI/CD Pipeline", "Sistem Entegrasyonu"]
+order: 3
 ---
-İşletmenizle birlikte ölçeklenen bulut ortamları tasarlıyor ve yönetiyorum. DevOps pratiklerimle, ilk günden itibaren altyapı otomasyonu ve izleme ile hızlı, güvenilir dağıtımlar sağlıyorum.
+İşletmenizle birlikte ölçeklenen bulut ortamları tasarlıyor ve yönetiyorum. Mevcut sistemlerinizi entegre ediyor, altyapı otomasyonu ve izleme ile hızlı, güvenilir dağıtımlar sağlıyorum.

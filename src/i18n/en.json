@@ -2,38 +2,81 @@
   "nav": {
     "home": "Home",
     "services": "Services",
-    "solutions": "Solutions",
     "projects": "Projects",
     "blog": "Blog",
-    "contact": "Contact Us"
+    "contact": "Contact"
   },
   "hero": {
-    "cta": "Get Started"
+    "badge": "Independent Software Consultant, Based in Slovakia",
+    "title": "Still Running Your Business on Spreadsheets?",
+    "subtitle": "Your digital transformation partner in Central Europe. Automate, build, and scale with AI-powered solutions.",
+    "cta": "Book a Free Call",
+    "secondaryCta": "View Services"
   },
   "sections": {
-    "whyUs": "Why Choose Us",
-    "stats": "Our Numbers",
-    "methodology": "Our Process",
+    "whyUs": "Why Choose Me?",
+    "whyUsSubtitle": "With 30+ years of experience, I deliver tailored solutions for businesses across Europe.",
+    "stats": "By the Numbers",
+    "services": "My Services",
+    "servicesSubtitle": "Repetitive tasks stealing your time? Let me automate your workflows.",
     "projects": "Recent Projects",
-    "testimonials": "Client Testimonials",
-    "team": "Our Team",
+    "projectsSubtitle": "A showcase of my professional work and achievements",
     "faq": "FAQ",
+    "faqSubtitle": "Frequently asked questions and answers. If you have other questions, please contact me.",
     "blog": "Latest Posts",
-    "tools": "AI Tools",
-    "services": "Our Services"
+    "pricing": "Packages",
+    "pricingSubtitle": "How much should you budget for software? Clear pricing, clear results.",
+    "targetAudience": "Who I Work With",
+    "targetAudienceSubtitle": "Tailored solutions for businesses across Central Europe"
   },
   "footer": {
     "rights": "All rights reserved.",
     "quickLinks": "Quick Links",
     "contact": "Contact",
     "newsletter": "Stay Updated",
-    "subscribe": "Subscribe"
+    "subscribe": "Subscribe",
+    "techPartners": "Tech Ecosystem"
   },
   "cta": {
     "learnMore": "Learn More",
-    "contactUs": "Contact Us",
+    "contactUs": "Contact Me",
     "viewProject": "View Project",
     "readMore": "Read More",
-    "allPosts": "All Posts"
+    "allPosts": "All Posts",
+    "getQuote": "Get a Quote",
+    "bookCall": "Book a Call"
+  },
+  "pricing": {
+    "popular": "Popular",
+    "packages": [
+      {
+        "name": "Website Package",
+        "description": "Corporate website with SEO infrastructure",
+        "price": "€600 – €1,200",
+        "features": ["5-page website", "Mobile responsive", "SEO optimization", "Contact form", "1 month support"],
+        "bonus": "Free 30-min digital strategy call",
+        "guarantee": "Free revisions until you're satisfied",
+        "cta": "Get a Quote"
+      },
+      {
+        "name": "Automation Package",
+        "description": "Business process automation, n8n setup",
+        "price": "€800 – €2,000",
+        "features": ["Needs analysis", "2-3 automation workflows", "n8n setup", "AI integration", "Training"],
+        "bonus": "1 month free technical support",
+        "guarantee": "Money back if it doesn't work",
+        "cta": "Get a Quote",
+        "highlighted": true
+      },
+      {
+        "name": "Monthly Consulting",
+        "description": "Ongoing technical support and development",
+        "price": "€300 – €900/mo",
+        "features": ["Monthly consulting", "Priority support", "Minor development", "Performance monitoring", "Monthly report"],
+        "bonus": "First month emergency support included",
+        "guarantee": "Cancel anytime, no contract",
+        "cta": "Book a Call"
+      }
+    ]
   }
 }

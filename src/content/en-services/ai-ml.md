@@ -1,8 +1,8 @@
 ---
-title: "AI & Machine Learning"
-description: "Custom AI solutions, ML model development, NLP, computer vision, and intelligent automation for enterprise."
-icon: "brain"
-features: ["Custom ML Models", "Natural Language Processing", "Computer Vision", "Predictive Analytics", "AI Strategy Consulting"]
+title: "AI & Automation Solutions"
+description: "Custom AI agent development, n8n workflow automation, LLM integration, and predictive analytics."
+icon: "🧠"
+features: ["Custom AI Agent Development", "n8n Workflow Automation", "LLM Integration", "Predictive Analytics"]
 order: 1
 ---
-We design and deploy production-ready AI systems that solve real business problems. From predictive maintenance to intelligent document processing, our solutions integrate seamlessly into your existing infrastructure.
+I design and deploy production-ready AI and automation systems that solve real business problems. From n8n workflow automation to custom LLM integrations, my solutions streamline your operations.

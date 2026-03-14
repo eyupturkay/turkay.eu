@@ -1,8 +1,8 @@
 ---
-title: "Full-Stack Yazılım Geliştirme"
-description: "React, Next.js, Node.js ve bulut-native mimarilerle modern web ve mobil uygulamalar."
+title: "Özel Yazılım Geliştirme"
+description: "Web uygulamaları, yönetim panelleri, API entegrasyonu ve CRM sistemleri."
 icon: "💻"
-features: ["Web Uygulamaları", "Mobil Geliştirme", "API Tasarımı", "Mikroservisler", "Veritabanı Mimarisi"]
-order: 3
+features: ["Web Uygulamaları", "Yönetim Panelleri", "API & Entegrasyon", "CRM Sistemleri"]
+order: 2
 ---
-Modern framework'ler kullanarak performanslı, ölçeklenebilir uygulamalar geliştiriyorum. Müşteriye dönük bir platform ya da dahili bir araç olsun, uzun ömürlü ve bakımı kolay temiz kod sunuyorum.
+Modern framework'ler kullanarak performanslı, ölçeklenebilir uygulamalar geliştiriyorum. İşletmenize özel web uygulamaları, yönetim panelleri ve entegrasyon çözümleri sunuyorum.

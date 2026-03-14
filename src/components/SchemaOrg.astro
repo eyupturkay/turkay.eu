@@ -1,0 +1,60 @@
+---
+interface Props {
+  lang: 'en' | 'tr' | 'sk';
+}
+
+const { lang } = Astro.props;
+
+const name = lang === 'tr' ? 'Eyüp Türkay – Yazılım & AI Danışmanlığı'
+  : lang === 'sk' ? 'Eyüp Türkay – Softvér & AI Konzultácie'
+  : 'Eyüp Türkay – Software & AI Consulting';
+
+const description = lang === 'tr' ? 'Avrupa\'daki Türk işletmeleri için yazılım, otomasyon ve AI çözümleri.'
+  : lang === 'sk' ? 'Softvérové, automatizačné a AI riešenia pre firmy v strednej Európe.'
+  : 'Software, automation, and AI solutions for businesses in Central Europe.';
+
+const url = lang === 'en' ? 'https://turkay.eu/' : `https://turkay.eu/${lang}/`;
+
+const professionalService = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": name,
+  "description": description,
+  "url": url,
+  "telephone": "+421915455756",
+  "email": "info@turkay.eu",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "SKY PARK Offices, Bottova 7939/2A",
+    "addressLocality": "Bratislava",
+    "postalCode": "811 09",
+    "addressCountry": "SK"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 48.1486,
+    "longitude": 17.1077
+  },
+  "priceRange": "€€",
+  "areaServed": ["SK", "CZ", "AT", "DE", "TR", "PL", "HU"],
+  "knowsLanguage": ["tr", "en", "sk"]
+};
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Eyüp Türkay",
+  "jobTitle": "Senior AI & Software Architect",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "turkay.eu"
+  },
+  "knowsAbout": ["AI", "Machine Learning", "n8n", "Cloud Architecture", "Software Development"],
+  "sameAs": [
+    "https://linkedin.com/in/eyupturkay",
+    "https://github.com/eyupturkay"
+  ]
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(professionalService)} />
+<script type="application/ld+json" set:html={JSON.stringify(person)} />
